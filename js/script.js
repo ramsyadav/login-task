@@ -14,15 +14,14 @@ $(document).ready(function () {
                     $("#login").val('Connecting...');
                 },
                 success: function (data) {
-                    if (data==0){
-//                        $("#error").text("Something went wrong!").css('color','red');
-//                        Shake animation effect.
+                    if (data==1){
+                        $("body").load("home.php").hide().fadeIn(1500).delay(6000);
+                        window.location.href = "home.php";
+                        
+                    } else{
                         $('#box').shake();
                         $("#login").val('Login')
                         $("#error").html("<span style='color:#cc0000'>Error:</span> Invalid username or password. ");
-                    } else{
-                        $("body").load("home.php").hide().fadeIn(1500).delay(6000);
-                        window.location.href = "home.php";
                     }
                 }
             });
